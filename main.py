@@ -13,11 +13,19 @@ all_books = {
     "Лев Толстой": [["Війна і мир", 1225], ["Анна Кареніна", 864]]
 }
 
+@app.get("/")
+async def index():
+    """
+    пр
+    """
+    return{
+        "message: пр"
+    }
 
 class Book(BaseModel):
-    title: str = Field(..., min_lenght=3, max_lenght=255)
     author: str = Field(..., min_lenght=3, max_lenght=255)
     pages: int = Field(..., g=10)
+    gr:int
     da:str
 
 @app.get("/")
@@ -29,7 +37,6 @@ async def get_all_books():
 
 @app.post("/add_book")
 async def add_new_book(book:Book):
-    "Додає нову книгу"
     if book.author not in all_books:
         all_books[book.author] = [[book.title, book.pages]]
     else:
