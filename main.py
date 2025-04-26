@@ -23,9 +23,9 @@ async def index():
     }
 
 class Book(BaseModel):
-    title: str = Field(..., min_lenght=3, max_lenght=255)
     author: str = Field(..., min_lenght=3, max_lenght=255)
     pages: int = Field(..., g=10)
+    gr:int
 
 @app.get("/")
 async def get_all_books():
