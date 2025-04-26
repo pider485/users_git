@@ -36,7 +36,6 @@ async def get_all_books():
 
 @app.post("/add_book")
 async def add_new_book(book:Book):
-    "Додає нову книгу"
     if book.author not in all_books:
         all_books[book.author] = [[book.title, book.pages]]
     else:
