@@ -13,6 +13,14 @@ all_books = {
     "Лев Толстой": [["Війна і мир", 1225], ["Анна Кареніна", 864]]
 }
 
+@app.get("/")
+async def index():
+    """
+    пр
+    """
+    return{
+        "message: пр"
+    }
 
 class Book(BaseModel):
     title: str = Field(..., min_lenght=3, max_lenght=255)
